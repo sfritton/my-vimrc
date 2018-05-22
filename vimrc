@@ -85,4 +85,7 @@ nnoremap <C-H> <C-W><C-H>
 "easier to open nerdtree
 nnoremap <leader>f :NERDTree<CR>
 
+"easier to clear search
+nnoremap <leader>c /qf<CR>:<ESC><ESC>
+
 set pastetoggle=<F9>
