@@ -18,6 +18,7 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'mitermayer/vim-prettier'
 Plugin 'TeTrIs.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-fugitive'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
