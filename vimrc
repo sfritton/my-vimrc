@@ -88,4 +88,8 @@ nnoremap <leader>f :NERDTree<CR>
 "easier to clear search
 nnoremap <leader>c /qf<CR>:<ESC><ESC>
 
+"auto open/close NERDTree on entering vim or closing all files
+autocmd vimenter * NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 set pastetoggle=<F9>
