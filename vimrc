@@ -18,6 +18,7 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'mitermayer/vim-prettier'
 Plugin 'TeTrIs.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-fugitive'
 
 " The following are examples of different formats supported.
@@ -85,23 +86,11 @@ nnoremap <C-H> <C-W><C-H>
 "easier to open nerdtree
 nnoremap <leader>f :NERDTree<CR>
 
-"easier to clear search
-nnoremap <leader>d /qf<CR>:<ESC><ESC>
-
-"comment line
-nnoremap <leader>c I// <ESC>
-
-"uncomment line
-nnoremap <leader>u ^3x<ESC>
-
-"comment JSX line
-nnoremap <leader>xc I{/*<ESC>A*/}<ESC>
-
-"uncomment JSX line
-noremap <leader>xu ^3x<ESC>$v2hx<ESC>
-
 "auto open/close NERDTree on entering vim or closing all files
 autocmd vimenter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+"easier to clear search
+nnoremap <leader>d /qf<CR>:<ESC><ESC>
 
 set pastetoggle=<F9>
