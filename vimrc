@@ -86,7 +86,19 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <leader>f :NERDTree<CR>
 
 "easier to clear search
-nnoremap <leader>c /qf<CR>:<ESC><ESC>
+nnoremap <leader>d /qf<CR>:<ESC><ESC>
+
+"comment line
+nnoremap <leader>c I// <ESC>
+
+"uncomment line
+nnoremap <leader>u ^3x<ESC>
+
+"comment JSX line
+nnoremap <leader>xc I{/*<ESC>A*/}<ESC>
+
+"uncomment JSX line
+noremap <leader>xu ^3x<ESC>$v2hx<ESC>
 
 "auto open/close NERDTree on entering vim or closing all files
 autocmd vimenter * NERDTree
