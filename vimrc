@@ -40,6 +40,9 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+"create swp files in a 'tmp' directory, instead of the directory where I'm working
+set directory^=$HOME/.vim/tmp//
+
 syntax enable 
 colorscheme gruvbox
 "colorscheme monokai
