@@ -94,6 +94,6 @@ autocmd vimenter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 "easier to clear search
-nnoremap <leader>d /qf<CR>:<ESC><ESC>
+nnoremap <leader>d :noh<CR>
 
 set pastetoggle=<F9>
