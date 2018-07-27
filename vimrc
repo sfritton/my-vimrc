@@ -15,11 +15,12 @@ Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'morhetz/gruvbox'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'mitermayer/vim-prettier'
 Plugin 'TeTrIs.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-fugitive'
+Plugin 'ap/vim-css-color'
+Plugin 'SirVer/ultisnips'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -40,12 +41,11 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-"create swp files in a 'tmp' directory, instead of the directory where I'm working
+"create swp files in a 'tmp' directory, instead of the directory where you're working
 set directory^=$HOME/.vim/tmp//
 
 syntax enable 
 colorscheme gruvbox
-"colorscheme monokai
 
 let mapleader=","
 
@@ -85,6 +85,13 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+"easier to use snippets
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+"set the snippets directory
+let g:UltiSnipsSnippetDirectories=["my-snippets"]
 
 "easier to open nerdtree
 nnoremap <leader>f :NERDTree<CR>
