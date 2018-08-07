@@ -13,7 +13,7 @@ if (${1:true}) {
 endsnippet
 
 snippet ter " condition ? ... : ..."
-${1:condition} ? ${2:${VISUAL}} : $0
+${1:condition} ? ${2:${VISUAL}} : $3
 endsnippet
 
 snippet log "console.log('...', ...)"
@@ -21,7 +21,7 @@ console.log('$1', $1);
 endsnippet
 
 snippet ri "import { ... } from ..."
-import ${1:{ $2 }} from '$0';
+import ${1:{ $2 }} from '$3';
 endsnippet
 
 snippet ri1 "import React"
@@ -37,7 +37,7 @@ snippet rcla "react class"
 class ${1:MyComponent} extends PureComponent {
 	render() {
 		return (
-			${0:<div></div>}
+			${2:<div></div>}
 		)
 	}
 }
@@ -48,7 +48,7 @@ constructor(props) {
 	super(props)
 
 	this.state = {
-		$1: $0,
+		$1: $2,
 	}
 }
 endsnippet
@@ -62,19 +62,19 @@ endsnippet
 
 snippet rdp "default props for react component"
 ${1:MyComponent}.defaultProps = {
-	${2:prop}: ${0:value},
+	${2:prop}: ${3:value},
 }
 endsnippet
 
 snippet rcom "simple component"
 ${1:({ $2 })} => (
-	${3:<div>$0</div>}
+	${3:<div>$4</div>}
 )
 endsnippet
 
 snippet tag "<tag> ... </tag>"
 <${1:div}>
-	${0:${VISUAL}}
+	${2:${VISUAL}}
 </$1>
 endsnippet
 
