@@ -1,14 +1,14 @@
 snippet if "if (condition) { ... }"
 if (${1:true}) {
-	${VISUAL}
+	${2:${VISUAL}}
 }
 endsnippet
 
 snippet ife "if (condition) { ... } else { ... }"
 if (${1:true}) {
-	${VISUAL}
+	${2:${VISUAL}}
 } else {
-	$2
+	$3
 }
 endsnippet
 
@@ -18,4 +18,72 @@ endsnippet
 
 snippet log "console.log('...', ...)"
 console.log('$1', $1);
+endsnippet
+
+snippet ri "import { ... } from ..."
+import ${1:{ $2 }} from '$0';
+endsnippet
+
+snippet ri1 "import React"
+import React from 'react';
+endsnippet
+
+snippet ri2 "import React, PureComponent, PropTypes"
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+endsnippet
+
+snippet rcla "react class"
+class ${1:MyComponent} extends PureComponent {
+	render() {
+		return (
+			${0:<div></div>}
+		)
+	}
+}
+endsnippet
+
+snippet rcon "react constructor"
+constructor(props) {
+	super(props)
+
+	this.state = {
+		$1: $0,
+	}
+}
+endsnippet
+
+snippet rpt "proptypes for react component"
+${1:MyComponent}.propTypes = {
+	${2:prop}: PropTypes.${3:string},
+	${4}
+}
+endsnippet
+
+snippet rdp "default props for react component"
+${1:MyComponent}.defaultProps = {
+	${2:prop}: ${0:value},
+}
+endsnippet
+
+snippet rcom "simple component"
+${1:({ $2 })} => (
+	${3:<div>$0</div>}
+)
+endsnippet
+
+snippet tag "<tag> ... </tag>"
+<${1:div}>
+	${0:${VISUAL}}
+</$1>
+endsnippet
+
+snippet csx "{/* ... */}"
+{/* ${VISUAL} */}
+endsnippet
+
+snippet mdsec "markdown section"
+<section>
+	<MarkdownSection name="${1:name}" />
+</section>
 endsnippet
