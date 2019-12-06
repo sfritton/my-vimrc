@@ -12,15 +12,22 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'kien/ctrlp.vim'
 Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'mxw/vim-jsx'
+Plugin 'pangloss/vim-javascript'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'morhetz/gruvbox'
+Plugin 'tomasr/molokai'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'TeTrIs.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-fugitive'
 Plugin 'ap/vim-css-color'
 Plugin 'SirVer/ultisnips'
+Plugin 'posva/vim-vue'
+Plugin 'ianks/vim-tsx'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'dense-analysis/ale'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -46,6 +53,7 @@ set directory^=$HOME/.vim/tmp//
 
 syntax enable 
 colorscheme gruvbox
+set guifont=Monaco:h12
 
 let mapleader=","
 
@@ -94,13 +102,48 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsSnippetDirectories=["my-snippets"]
 
 "easier to open nerdtree
-nnoremap <leader>f :NERDTree<CR>
+nnoremap <leader>f :NERDTree<C-R>=expand('%:p:h') . '/'<CR><CR>
+"close nerdtree
+nnoremap <leader>F :NERDTreeClose<CR>
 
 "auto open/close NERDTree on entering vim or closing all files
-autocmd vimenter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+"show hidden files
+let NERDTreeShowHidden=1
 
 "easier to clear search
 nnoremap <leader>d :noh<CR>
 
 set pastetoggle=<F9>
+
+"ctrl p
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+let g:ctrlp_custom_ignore = '\v[\/](\.(git|cache|github|tmp|vscode)|node_modules)$'
+
+"ale
+let g:ale_fixers = { 'javascript': ['prettier', 'eslint'], 'typescript': ['prettier', 'eslint'] }
+let g:ale_fix_on_save = 1
+let g:ale_set_balloons = 1
+let g:ale_completion_enabled = 1
+let g:ale_completion_tsserver_autoimport = 1
+nnoremap <leader>t :ALEHover<CR>
+
+"mouse
+set mouse=a
+set ttymouse=xterm
+
+"gf - path resolution
+set path=.,src,node_nodules
+
+function! LoadFromPackage(fname)
+  "path/to/module -> [path, to, module]
+  let pathPieces = split(a:fname, '\/')
+
+  "[path, to, module] -> ./packages/path/src/to/module
+  let path = join(["./packages", pathPieces[0], "src", join(pathPieces[1:], '/')], '/')
+
+  return path
+endfunction
+
+set includeexpr=LoadFromPackage(v:fname)

@@ -1,3 +1,7 @@
+# --------------------------------------------------------------------------
+# JS
+# --------------------------------------------------------------------------
+
 snippet if "if (condition) { ... }"
 if (${1:true}) {
 	${2:${VISUAL}}
@@ -20,16 +24,28 @@ snippet log "console.log('...', ...)"
 console.log('$1', $1);
 endsnippet
 
-snippet ri "import { ... } from ..."
+snippet kval "key: value"
+${1:key}: ${2:value}
+endsnippet
+
+# --------------------------------------------------------------------------
+# ES6
+# --------------------------------------------------------------------------
+
+snippet imp "import { ... } from ..."
 import ${1:{ $2 }} from '$3';
 endsnippet
+
+# --------------------------------------------------------------------------
+# React
+# --------------------------------------------------------------------------
 
 snippet ri1 "import React"
 import React from 'react';
 endsnippet
 
 snippet ri2 "import React, PureComponent, PropTypes"
-import React, { PureComponent } from 'react';
+import React, { ${1:Pure}Component } from 'react';
 import PropTypes from 'prop-types';
 endsnippet
 
@@ -37,7 +53,9 @@ snippet rcla "react class"
 class ${1:MyComponent} extends PureComponent {
 	render() {
 		return (
-			${2:<div></div>}
+			${2:<${3:div}>
+				$4
+			</$3>}
 		)
 	}
 }
@@ -48,16 +66,19 @@ constructor(props) {
 	super(props)
 
 	this.state = {
-		$1: $2,
+		$1: $2
 	}
 }
 endsnippet
 
-snippet rpt "proptypes for react component"
+snippet rpts "proptypes for react component"
 ${1:MyComponent}.propTypes = {
-	${2:prop}: PropTypes.${3:string},
-	${4}
+	${2:prop}: PropTypes.${3:string}
 }
+endsnippet
+
+snippet rpt "single proptype for react component"
+${1:prop}: PropTypes.${2:string}
 endsnippet
 
 snippet rdp "default props for react component"
@@ -68,9 +89,15 @@ endsnippet
 
 snippet rcom "simple component"
 ${1:({ $2 })} => (
-	${3:<div>$4</div>}
+	${3:<${4:div}>
+		$5
+	</$4>}
 )
 endsnippet
+
+# --------------------------------------------------------------------------
+# JSX
+# --------------------------------------------------------------------------
 
 snippet tag "<tag> ... </tag>"
 <${1:div}>
