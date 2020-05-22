@@ -54,6 +54,7 @@ set directory^=$HOME/.vim/tmp//
 
 syntax enable 
 colorscheme gruvbox
+set background=dark
 set guifont=Monaco:h12
 
 let mapleader=","
