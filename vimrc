@@ -10,7 +10,8 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-surround'
-Plugin 'kien/ctrlp.vim'
+"Plugin 'kien/ctrlp.vim'
+Plugin 'junegunn/fzf'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
@@ -117,9 +118,12 @@ nnoremap <leader>d :noh<CR>
 
 set pastetoggle=<F9>
 
+"map fuzzy finder to ctrl p
+nnoremap <C-P> :FZF<CR>
+
 "ctrl p
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-let g:ctrlp_custom_ignore = '\v[\/](\.(git|cache|github|tmp|vscode)|node_modules)$'
+"set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+"let g:ctrlp_custom_ignore = '\v[\/](\.(git|cache|github|tmp|vscode)|node_modules)$'
 
 "ale
 let g:ale_fixers = { 'javascript': ['prettier', 'eslint'], 'typescript': ['prettier', 'eslint'] }
